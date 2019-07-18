@@ -1,16 +1,20 @@
 <template>
-  <div class="header_container">
-    <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/manage' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
-    </el-breadcrumb>
-    <el-dropdown @command="handleCommand" menu-align="start">
-      <img src="http://static.kuaimayoupin.com/16a17111a44.png" class="avator">
-      <el-dropdown-menu slot="dropdown">
-        <el-dropdown-item command="home">首页</el-dropdown-item>
-        <el-dropdown-item command="signout">退出</el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+  <div class="container_top">
+    <div class="header_container_top">
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/home' }">
+          <div class="main-title">刘方磊工作室</div>
+        </el-breadcrumb-item>
+        <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="tabs-wrapper">
+        <div class="tab-item">项目</div>
+        <div class="tab-item">设计理念</div>
+        <div class="tab-item">新闻</div> 
+         <div class="tab-item">文明印记</div> 
+        <div class="tab-item">关于</div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,7 +30,6 @@ export default {
     };
   },
   created() {
-//     console.log("this.adminInfo ## ", JSON.stringify(this.adminInfo));
     if (!this.adminInfo || !this.adminInfo.id) {
       this.getAdminData();
     }
@@ -61,14 +64,40 @@ export default {
 
 <style lang="less">
 @import "../style/mixin";
-.header_container {
-  background-color: #fff;
-  height: 60px;
+
+.container_top {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  padding-left: 20px;
+  width: 100%;
+  .header_container_top {
+    
+    width: 100%;
+    background-color: #ffffff;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // padding-left: 20px;
+
+    .main-title {
+      font-size: 30px;
+      color: #333;
+    }
+
+    .tabs-wrapper {
+      display: flex;
+      flex-direction: row;
+      padding-right: 60px;
+      box-sizing: border-box;
+      .tab-item {
+        padding: 20px 30px;
+        color: #333;
+      }
+    }
+  }
 }
+
 .avator {
   .wh(36px, 36px);
   border-radius: 50%;
