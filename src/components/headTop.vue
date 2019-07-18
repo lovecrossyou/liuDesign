@@ -10,8 +10,8 @@
       <div class="tabs-wrapper">
         <div class="tab-item">项目</div>
         <div class="tab-item">设计理念</div>
-        <div class="tab-item">新闻</div> 
-         <div class="tab-item">文明印记</div> 
+        <div class="tab-item">新闻</div>
+        <div class="tab-item">文明印记</div>
         <div class="tab-item">关于</div>
       </div>
     </div>
@@ -70,10 +70,13 @@ export default {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  background-color: #ffffff;
+
+  padding: 30px 20px;
+  box-sizing: border-box;
+
   .header_container_top {
-    
     width: 100%;
-    background-color: #ffffff;
     height: 60px;
     display: flex;
     justify-content: space-between;
@@ -83,6 +86,7 @@ export default {
     .main-title {
       font-size: 30px;
       color: #333;
+      font-weight: bold;
     }
 
     .tabs-wrapper {
