@@ -2,17 +2,9 @@
   <div class="container">
     <div class="content">
       <head-top textColor="#fff"></head-top>
-
-      <map :center="center" :zoom="7" class="map">
-        <marker
-          v-for="m in markers"
-          :position.sync="m.position"
-          :clickable="true"
-          :draggable="true"
-          @g-click="center=m.position"
-          :key="m.id"
-        ></marker>
-      </map>
+      <div class="amap-wrapper">
+      <el-amap  class="amap-box" :vid="'amap-vue'" mapStyle="light"  isHotspot="true" :zoom="zoom"></el-amap>
+    </div>
     </div>
   </div>
 </template>
@@ -20,31 +12,19 @@
 <script>
 import headTop from "@/components/headTop";
 import { mapState } from "vuex";
-import { load, Map, Marker } from "vue-google-maps";
-load("AIzaSyB59tFRny_neBuSc0WWh82a-QtgXkYyetg", "");
+import AMap from "@/utils/AMap";
 
 export default {
   components: {
     headTop,
-    Map,
-    Marker
   },
   computed: {
     ...mapState("shop", ["shoplist"])
   },
   data() {
     return {
-      center: { lat: 10.0, lng: 10.0 },
-      markers: [
-        {
-          id:'001',
-          position: { lat: 10.0, lng: 10.0 }
-        },
-        {
-           id:'002',
-          position: { lat: 11.0, lng: 11.0 }
-        }
-      ]
+      // zooms:[3,18],
+      zoom:3
     };
   },
   methods: {
@@ -53,15 +33,16 @@ export default {
     }
   },
   created() {
-    console.log("shoplist ", this.shoplist);
-  },
+    window.title = "地图";
+  }
 };
 </script>
 
 <style  scoped>
-.map{
-  width: 600px;
-  height: 600px;
+
+.amap-wrapper {
+  width: 100%;
+  height: 100%;
 }
 .container {
   width: 100%;
