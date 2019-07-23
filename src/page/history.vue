@@ -3,7 +3,13 @@
     <div class="content">
       <head-top textColor="#fff"></head-top>
       <div class="amap-wrapper">
-      <el-amap  class="amap-box" :vid="'amap-vue'" mapStyle="light"  isHotspot="true" :zoom="zoom"></el-amap>
+      <el-amap
+       :center="center"
+        class="amap-box"
+        :vid="'amap-vue'"
+        mapStyle="light"
+        :zoom="zoom">
+        </el-amap>
     </div>
     </div>
   </div>
@@ -22,9 +28,11 @@ export default {
     ...mapState("shop", ["shoplist"])
   },
   data() {
+    const center = [121.59996, 31.197646];
     return {
-      // zooms:[3,18],
-      zoom:3
+      zoom:3,
+      center,
+      markers:[]
     };
   },
   methods: {
@@ -34,7 +42,22 @@ export default {
   },
   created() {
     window.title = "地图";
-  }
+
+    let self = this;
+        let markers = [];
+        let index = 0;
+
+        let basePosition = [121.59996, 31.197646];
+        let num = 10;
+
+        for (let i = 0 ; i < num ; i++) {
+          markers.push({
+            position: [basePosition[0], basePosition[1] + i * 0.03],
+            content: `content ${i}`
+          });
+        }
+        this.markers = markers;
+      }
 };
 </script>
 
