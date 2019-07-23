@@ -18,27 +18,27 @@
             <img src="../../static/works/right_arrow.jpg" v-if="!isLastPage" class="rightarrow"  @click="goNext"/>
             <div class="works-w">
               <div class="work-wrapper">
-                <img class="intro-person" src="../../static/works/项目_001.jpg" />
+                <img class="intro-person" src="../../static/works/项目_001.jpg" @click="goPage('workdetail')"/>
                 <div class="work-desc">第九届厦门金砖会晤--会议中心及会展中心</div>
               </div>
               <div class="work-wrapper">
-                <img class="intro-person" src="../../static/works/项目_002.jpg" />
+                <img class="intro-person" src="../../static/works/项目_002.jpg"  @click="goPage('workdetail')"/>
                 <div class="work-desc">第22届APEC（北京APEC）峰会主会场</div>
               </div>
               <div class="work-wrapper">
-                <img class="intro-person" src="../../static/works/项目_003.jpg" />
+                <img class="intro-person" src="../../static/works/项目_003.jpg"  @click="goPage('workdetail')"/>
                 <div class="work-desc">雁栖湖国际会展中心</div>
               </div>
               <div class="work-wrapper">
-                <img class="intro-person" src="../../static/works/项目_004.jpg" />
+                <img class="intro-person" src="../../static/works/项目_004.jpg"  @click="goPage('workdetail')"/>
                 <div class="work-desc">福州数字会展中心</div>
               </div>
               <div class="work-wrapper">
-                <img class="intro-person" src="../../static/works/项目_005.jpg" />
+                <img class="intro-person" src="../../static/works/项目_005.jpg"  @click="goPage('workdetail')"/>
                 <div class="work-desc">安平丝网会展中心</div>
               </div>
               <div class="work-wrapper">
-                <img class="intro-person" src="../../static/works/项目_006.jpg" />
+                <img class="intro-person" src="../../static/works/项目_006.jpg"  @click="goPage('workdetail')"/>
                 <div class="work-desc">北京香港马会会所</div>
               </div>
             </div>
@@ -110,6 +110,9 @@ export default {
     }
   },
   methods: {
+    goPage(page){
+      this.$router.push(page)
+    },
     goNext() {
       const nextIndex = (this.currentIndex + 1)%this.totalCount;
       this.currentIndex = nextIndex;
