@@ -9,18 +9,18 @@
       </el-breadcrumb>
 
       <div class="tabs-wrapper">
+         <div
+          class="tab-item"
+          v-bind:style="{color:textColor}"
+          v-bind:class="{ active: activeTabIndex===1 }"
+          @click="goPage('/design',1)"
+        >设计理念</div>
         <div
           class="tab-item"
           v-bind:style="{color:textColor}"
           v-bind:class="{ active: activeTabIndex===0 }"
           @click="goPage('/home',0)"
         >项目</div>
-        <div
-          class="tab-item"
-          v-bind:style="{color:textColor}"
-          v-bind:class="{ active: activeTabIndex===1 }"
-          @click="goPage('/design',1)"
-        >设计理念</div>
         <div
           class="tab-item"
           v-bind:style="{color:textColor}"

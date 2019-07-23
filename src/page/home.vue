@@ -2,7 +2,83 @@
   <div class="container">
     <div class="content">
       <head-top white></head-top>
-      
+      <el-carousel
+        :autoplay="false"
+        :interval="4000"
+        height="600px"
+        arrow="never"
+        ref="carousel"
+        indicator-position="none"
+        
+      >
+        <!-- 001-->
+        <el-carousel-item>
+          <div class="intro-wrapper">
+            <img src="../../static/works/left_arrow.jpg" v-if="!isFirstPage" class="leftarrow" @click="goNext"/>
+            <img src="../../static/works/right_arrow.jpg" v-if="!isLastPage" class="rightarrow"  @click="goNext"/>
+            <div class="works-w">
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_001.jpg" />
+                <div class="work-desc">第九届厦门金砖会晤--会议中心及会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_002.jpg" />
+                <div class="work-desc">第22届APEC（北京APEC）峰会主会场</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_003.jpg" />
+                <div class="work-desc">雁栖湖国际会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_004.jpg" />
+                <div class="work-desc">福州数字会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_005.jpg" />
+                <div class="work-desc">安平丝网会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_006.jpg" />
+                <div class="work-desc">北京香港马会会所</div>
+              </div>
+            </div>
+          </div>
+        </el-carousel-item>
+
+
+        <el-carousel-item>
+          <div class="intro-wrapper">
+             <img src="../../static/works/left_arrow.jpg" v-if="!isFirstPage" class="leftarrow" @click="goNext"/>
+            <img src="../../static/works/right_arrow.jpg" v-if="!isLastPage" class="rightarrow"  @click="goNext"/>
+            <div class="works-w">
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_001.jpg" />
+                <div class="work-desc">第九届厦门金砖会晤--会议中心及会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_002.jpg" />
+                <div class="work-desc">第22届APEC（北京APEC）峰会主会场</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_003.jpg" />
+                <div class="work-desc">雁栖湖国际会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_004.jpg" />
+                <div class="work-desc">福州数字会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_005.jpg" />
+                <div class="work-desc">安平丝网会展中心</div>
+              </div>
+              <div class="work-wrapper">
+                <img class="intro-person" src="../../static/works/项目_006.jpg" />
+                <div class="work-desc">北京香港马会会所</div>
+              </div>
+            </div>
+          </div>
+        </el-carousel-item>
+      </el-carousel>
     </div>
   </div>
 </template>
@@ -16,18 +92,29 @@ export default {
   },
   data() {
     return {
-      totalCount: 3,
+      totalCount: 2,
       currentIndex: 0
     };
   },
+  computed:{
+    isFirstPage(){
+      return this.currentIndex === 0;
+    },
+    isLastPage(){
+      return this.currentIndex === 1;
+    }
+  },
+  watch:{
+    currentIndex(){
+      
+    }
+  },
   methods: {
     goNext() {
-      const nextIndex = (this.currentIndex + 1) % this.totalCount;
-      this.$refs.carousel.setActiveItem(nextIndex);
+      const nextIndex = (this.currentIndex + 1)%this.totalCount;
       this.currentIndex = nextIndex;
-    },
-    change(index) {
-      this.currentIndex = index;
+      this.$refs.carousel.setActiveItem(nextIndex);
+      console.log('goNext ', this.currentIndex);
     }
   }
 };
@@ -41,85 +128,8 @@ export default {
 
   .content {
     width: 1164px;
-
+    height: 600px;
     position: relative;
-
-    .fix-bg {
-      position: absolute;
-      background-color: #fbfbfb;
-      left: 140px;
-      top: 200px;
-      right: 0px;
-      height: 600px;
-      z-index: -1;
-    }
-
-    .el-carousel__item h3 {
-      color: #475669;
-      font-size: 14px;
-      opacity: 0.75;
-      line-height: 600px;
-      margin: 0;
-    }
-
-    .product-title {
-      font-size: 24px;
-      padding-bottom: 20px;
-      box-sizing: border-box;
-    }
-
-
-
-    //  002 -- 作品集
-    .intro-wrapper {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-
-      .works {
-        width: 542px;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        flex-wrap: wrap;
-        border:1px solid #e1e11e;
-        padding: 4px;
-        .intro-person {
-          width: 264px;
-          height: 200px;
-          margin-bottom: 6px;
-        }
-      }
-      .intro-person {
-        width: 542px;
-        height: 675px;
-      }
-    }
-
-    .intro-wrapper {
-      display: flex;
-      flex-direction: row;
-      width: 100%;
-
-      .works {
-        width: 542px;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        flex-wrap: wrap;
-        border:1px solid #e1e11e;
-        padding: 4px;
-        .intro-person {
-          width: 264px;
-          height: 200px;
-          margin-bottom: 6px;
-        }
-      }
-      .intro-person {
-        width: 542px;
-        height: 675px;
-      }
-    }
 
     // 003 作品集
     .intro-wrapper {
@@ -127,19 +137,45 @@ export default {
       flex-direction: row;
       width: 100%;
       background-color: #fbfbfb;
+      justify-content: center;
+      position: relative;
+
+      .leftarrow{
+        position: absolute;
+        left: 0;
+        top: 45%;
+
+        width:30px;
+        height: 60px;
+      }
+
+      .rightarrow{
+        position: absolute;
+        right: 0;
+        top: 45%;
+
+        width:30px;
+        height: 60px;
+      }
       .works-w {
-        width: 800px;
+        width: 80%;
         display: flex;
         justify-content: space-between;
         flex-direction: row;
         flex-wrap: wrap;
-        // border:1px solid #e11e28;
         padding: 4px;
         .intro-person {
           width: 264px;
-          height: 180px;
+          height: 264px;
+          // margin-right: 25px;
           margin-bottom: 6px;
           background-color: #fff;
+        }
+        .work-desc{
+          text-align: center;
+          width: 100%;
+          font-size: 8px;
+          height: 30px;
         }
       }
       .intro-person {

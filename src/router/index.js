@@ -12,7 +12,7 @@ const design = r => require.ensure([], () => r(require('@/page/design')), 'desig
 const news = r => require.ensure([], () => r(require('@/page/news')), 'news');
 const about = r => require.ensure([], () => r(require('@/page/about')), 'about');
 const history = r => require.ensure([], () => r(require('@/page/history')), 'history');
-
+const workdetail = r=>require.ensure([], () => r(require('@/page/workdetail')), 'workdetail');
 const routes = [
 	{
 		path: '/',
@@ -41,6 +41,9 @@ const routes = [
 	{
 		path: '/about',
 		component: about
+	},{
+		path:'/workdetail',
+		component: workdetail
 	}
 ]
 
