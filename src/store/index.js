@@ -9,12 +9,19 @@ const state = {
 		avatar: 'http://static.kuaimayoupin.com/16a17111a44.png',
 		id: null
 	},
+	activeTabIndex:0
+
 }
 
 const mutations = {
 	saveAdminInfo(state, adminInfo) {
 		state.adminInfo = adminInfo;
+	},
+
+	setTabIndex(state,index){
+		state.activeTabIndex = index;
 	}
+
 }
 
 const actions = {

@@ -1,7 +1,7 @@
 // import { getResturants } from '@/api/getData'
 
 const state = {
-        shoplist: [],
+        shoplist: ['12'],
         restaurant_id: null
 }
 
