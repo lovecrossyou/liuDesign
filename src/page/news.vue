@@ -65,7 +65,6 @@
                 </div>
                 <div class="work-desc">北京香港马会会所</div>
               </div>
-              
             </div>
           </div>
         </el-carousel-item>
