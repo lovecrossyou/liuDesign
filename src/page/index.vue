@@ -34,7 +34,9 @@ export default {
 <style  scoped>
 .container {
   width: 100%;
+  height: 100%;
   display: flex;
+  flex:1;
   flex-direction: column;
   align-items: center;
   background: url("../../static/index/首页_02.png") no-repeat fixed top;
@@ -43,7 +45,7 @@ export default {
 }
 .content {
   width: 100%;
-  height: 700px;
+  height: 100%;
   box-sizing: border-box;
   position: relative;
   padding: 60px 80px;
