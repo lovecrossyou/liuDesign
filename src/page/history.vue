@@ -1,9 +1,14 @@
 <template>
   <baidu-map :mapStyle="mapStyle" class="bm-view" :zoom="zoom" @ready="handler" center="北京">
+    <!-- 版权信息 -->
     <bm-copyright
       anchor="BMAP_ANCHOR_TOP_RIGHT"
-      :copyright="[{id: 1, content: 'LFL', bounds: {ne: {lng: 110, lat: 40}, sw:{lng: 0, lat: 0}}}, {id: 2, content: '<a></a>'}]"
+      :copyright="[{id: 1, content: 'LFL', bounds: {ne: {lng: 110, lat: 40}, sw:{lng: 0, lat: 0}}}, {id: 2, content: '<div></div>'}]"
     ></bm-copyright>
+
+    <!-- 缩放 -->
+    <bm-navigation anchor="BMAP_ANCHOR_TOP_RIGHT"></bm-navigation>
+
     <!-- 显示标注 -->
     <bm-label
       @click="click"
@@ -82,14 +87,14 @@ export default {
   },
   methods: {
     updateCirclePath(e) {
-      this.circlePath.center = e.target.getCenter();
-      this.circlePath.radius = e.target.getRadius();
+      // this.circlePath.center = e.target.getCenter();
+      // this.circlePath.radius = e.target.getRadius();
     },
     handler({ BMap, map }) {
-      console.log(BMap, map);
-      this.center.lng = 116.404;
-      this.center.lat = 39.915;
-      this.zoom = 15;
+      // console.log(BMap, map);
+      // this.center.lng = 116.404;
+      // this.center.lat = 39.915;
+      // this.zoom = 15;
     },
     infoWindowClose(e) {
       this.infoWindow.show = false;
@@ -121,5 +126,9 @@ export default {
   width: 100px;
   height: 200px;
   background-color: beige;
+}
+
+.anchorBL {
+  display: none;
 }
 </style>
