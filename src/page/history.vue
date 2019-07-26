@@ -1,85 +1,125 @@
 <template>
-  <div class="container">
-    <div class="content">
-      <head-top textColor="#fff"></head-top>
-      <div class="amap-wrapper">
-      <el-amap
-       :center="center"
-        class="amap-box"
-        :vid="'amap-vue'"
-        mapStyle="light"
-        :zoom="zoom">
-        </el-amap>
-    </div>
-    </div>
-  </div>
+  <baidu-map :mapStyle="mapStyle" class="bm-view" :zoom="zoom" @ready="handler" center="北京">
+    <bm-copyright
+      anchor="BMAP_ANCHOR_TOP_RIGHT"
+      :copyright="[{id: 1, content: 'LFL', bounds: {ne: {lng: 110, lat: 40}, sw:{lng: 0, lat: 0}}}, {id: 2, content: '<a></a>'}]"
+    ></bm-copyright>
+    <!-- 显示标注 -->
+    <bm-label
+      @click="click"
+      content
+      :position="{lng: 116.404, lat: 39.915}"
+      :labelStyle="{backgroundColor:'#666666',color: '#666666', fontSize : '24px',width:'10px',height:'10px',borderRadius: '50%'}"
+      title="Hover me"
+    />
+    <bm-label
+      @click="click"
+      content
+      :position="{lng: 86.404, lat: 39.915}"
+      :labelStyle="{backgroundColor:'#666666',color: '#666666', fontSize : '24px',width:'10px',height:'10px',borderRadius: '50%'}"
+      title="Hover me"
+    />
+    <bm-label
+      @click="click"
+      content
+      :position="{lng: 100.404, lat: 39.915}"
+      :labelStyle="{backgroundColor:'#666666',color: '#666666', fontSize : '24px',width:'10px',height:'10px',borderRadius: '50%'}"
+      title="Hover me"
+    />
+
+    <!-- 弹出层 -->
+    <bm-info-window
+      :position="winPosition"
+      title="汉唐飞扬"
+      :show="infoWindow.show"
+      @close="infoWindowClose"
+      @open="infoWindowOpen"
+    >
+      <img
+        style="width:100%;"
+        src="http://qnimage.xiteng.com/%E9%A1%B9%E7%9B%AE%E8%AF%A6%E6%83%85_14.jpg"
+        alt
+      />
+    </bm-info-window>
+  </baidu-map>
 </template>
 
 <script>
-import headTop from "@/components/headTop";
-import { mapState } from "vuex";
-import AMap from "@/utils/AMap";
-
+import BaiduMap from "vue-baidu-map/components/map/Map.vue";
 export default {
-  components: {
-    headTop,
-  },
-  computed: {
-    ...mapState("shop", ["shoplist"])
-  },
   data() {
-    const center = [121.59996, 31.197646];
     return {
-      zoom:3,
-      center,
-      markers:[]
+      circlePath: {
+        center: {
+          lng: 116.404,
+          lat: 39.915
+        },
+        radius: 80
+      },
+      center: { lng: 0, lat: 0 },
+      zoom: 3,
+      infoWindow: {
+        show: true,
+        contents: "Lorem ipsum dolor sit amet,"
+      },
+      mapStyle: {
+        styleJson: [
+          {
+            featureType: "all",
+            elementType: "all",
+            stylers: {
+              lightness: 34,
+              saturation: -74
+            }
+          }
+        ]
+      },
+      winPosition: {
+        lng: 116.404,
+        lat: 39.915
+      }
     };
   },
   methods: {
-    goNext() {
-      this.$router.push("home");
+    updateCirclePath(e) {
+      this.circlePath.center = e.target.getCenter();
+      this.circlePath.radius = e.target.getRadius();
+    },
+    handler({ BMap, map }) {
+      console.log(BMap, map);
+      this.center.lng = 116.404;
+      this.center.lat = 39.915;
+      this.zoom = 15;
+    },
+    infoWindowClose(e) {
+      this.infoWindow.show = false;
+    },
+    infoWindowOpen(e) {
+      this.infoWindow.show = true;
+    },
+    clear() {
+      this.infoWindow.contents = "";
+    },
+    click({ type, target, point, pixel }) {
+      this.winPosition = point;
+      this.infoWindow.show = true;
     }
   },
-  created() {
-    window.title = "地图";
-
-    let self = this;
-        let markers = [];
-        let index = 0;
-
-        let basePosition = [121.59996, 31.197646];
-        let num = 10;
-
-        for (let i = 0 ; i < num ; i++) {
-          markers.push({
-            position: [basePosition[0], basePosition[1] + i * 0.03],
-            content: `content ${i}`
-          });
-        }
-        this.markers = markers;
-      }
+  components: {
+    BaiduMap
+  }
 };
 </script>
 
-<style  scoped>
-
-.amap-wrapper {
+<style>
+.bm-view {
   width: 100%;
   height: 100%;
 }
-.container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: url("../../static/index/首页_02.png") no-repeat fixed top;
-  background-size: 100% 100%;
-  /* position: relative; */
-}
-.content {
-  width: 100%;
-  height: 700px;
-  box-sizing: border-box;
-  position: relative;
+
+.prompt {
+  width: 100px;
+  height: 200px;
+  background-color: beige;
 }
 </style>
