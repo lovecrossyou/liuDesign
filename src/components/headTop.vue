@@ -11,31 +11,31 @@
       <div class="tabs-wrapper">
          <div
           class="tab-item"
-          v-bind:style="{color:textColor}"
+          v-bind:style="{color:textColor,borderBottomColor:textColor}"                    
           v-bind:class="{ active: activeTabIndex===1 }"
           @click="goPage('/design',1)"
         >设计理念</div>
         <div
           class="tab-item"
-          v-bind:style="{color:textColor}"
+          v-bind:style="{color:textColor,borderBottomColor:textColor}"        
           v-bind:class="{ active: activeTabIndex===0 }"
           @click="goPage('/home',0)"
         >项目</div>
         <div
           class="tab-item"
-          v-bind:style="{color:textColor}"
+          v-bind:style="{color:textColor, borderBottomColor:textColor}"
           v-bind:class="{ active: activeTabIndex===2 }"
           @click="goPage('/news',2)"
         >新闻</div>
         <div
           class="tab-item"
-          v-bind:style="{color:textColor}"
+          v-bind:style="{color:textColor,borderBottomColor:textColor}"
           v-bind:class="{ active: activeTabIndex===3 }"
           @click="goPage('/history',3)"
         >文明印记</div>
         <div
           class="tab-item"
-          v-bind:style="{color:textColor}"
+          v-bind:style="{color:textColor,borderBottomColor:textColor}"
           v-bind:class="{ active: activeTabIndex===4 }"
           @click="goPage('/about',4)"
         >关于</div>
@@ -142,8 +142,8 @@ export default {
 }
 
 .active {
-  border-bottom: solid 3px #333;
-  // width: 40px;
+  border-bottom: solid 3px;
+  border-bottom-color:black;
 }
 
 .avator {

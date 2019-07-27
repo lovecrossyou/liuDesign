@@ -8,8 +8,7 @@
           <img src="../../static/home/right_btn.png" alt />
         </div>
 <div class="bg-box"></div>
-        <div class="poem-wrapper">
-          
+        <div class="poem-wrapper">          
           <div class="poem-item">银河在望,天汉未央;</div>
           <div>两汉悠长,国士无双;</div>
           <div>回顾千年,中华脊梁;</div>
@@ -124,7 +123,7 @@ export default {
   /* background-color: #e1e1e1; */
   padding: 10px 50px;
   box-sizing: border-box;
-
+  line-height: 45px;
   left: 35%;
   top:30px;
 }

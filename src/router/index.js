@@ -5,7 +5,7 @@ import { request } from 'http';
 Vue.use(Router)
 
 const login = r => require.ensure([], () => r(require('@/page/login')), 'login');
-const home = r => require.ensure([], () => r(require('@/page/home')), 'home');
+const home = r => require.ensure([], () => r(require('@/page/project')), 'project');
 const index = r => require.ensure([], () => r(require('@/page/index')), 'index');
 //设计理念
 const design = r => require.ensure([], () => r(require('@/page/design')), 'design');
