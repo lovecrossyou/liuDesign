@@ -35,13 +35,14 @@ export default {
 
 <style  scoped>
 .container {
-  width: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background: url("../../static/index/首页_02.png") no-repeat fixed top;
-  background-size: 100% 100%;
-  /* position: relative; */
+  /* align-items: center; */
+   background: url("../../static/index/首页_02.png") no-repeat fixed top;
+   background-size: 100% 100%; 
+   position: relative; 
 }
 .content {
   width: 100%;

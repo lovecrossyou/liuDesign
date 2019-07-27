@@ -58,6 +58,7 @@
                   <div>福州数字中国会展中心总建筑师</div>
                   <div>2018北京市国资委支持刘方磊‐国际峰会建筑创作工作室</div>
                 </div>
+
                 <div class="next-btn" @click="goNext">
                   <div class="next">NEXT</div>
                   <img src="../../static/home/right_btn.png" alt />
@@ -128,7 +129,6 @@ export default {
   align-items: center;
 
   .content {
-    width: 1164px;
 
     position: relative;
 

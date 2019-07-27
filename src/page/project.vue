@@ -1,8 +1,9 @@
 <template>
   <div class="container">
-    <div class="content">
-      <head-top white></head-top>
-      <el-carousel
+    <head-top white></head-top>
+    <div class="content">      
+      <div class="scroll_content">
+     <el-carousel
         :autoplay="false"
         :interval="4000"
         height="600px"
@@ -81,6 +82,8 @@
 
       </el-carousel>
 
+      </div>
+ 
      
 
     </div>

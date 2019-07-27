@@ -1,7 +1,7 @@
 <template>
   <div class="container">
+    <head-top white></head-top>
     <div class="content">
-      <head-top white></head-top>
       <el-carousel
         :autoplay="false"
         :interval="4000"
@@ -105,9 +105,9 @@ export default {
   flex-direction: column;
   align-items: center;
 
-  .content {
-    width: 1164px;
+  .content {    
     height: 600px;
+    width: 1164px;
     position: relative;
 
     // 003 作品集

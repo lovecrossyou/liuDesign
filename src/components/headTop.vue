@@ -3,7 +3,7 @@
     <div class="header_container_top">
       <el-breadcrumb separator="/">
         <el-breadcrumb-item :to="{ path: '/home' }">
-          <div class="main-title">刘方磊工作室</div>
+          <div class="main-title" v-bind:style="{color:textColor}">刘方磊工作室</div>
         </el-breadcrumb-item>
         <el-breadcrumb-item v-for="(item, index) in $route.meta" :key="index">{{item}}</el-breadcrumb-item>
       </el-breadcrumb>
@@ -118,12 +118,12 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
+    // padding-left: 20px;
 
     .main-title {
       font-size: 30px;
       // color: #333;
-      color: #fff;
+      color:black;
       font-weight: bold;
     }
 
