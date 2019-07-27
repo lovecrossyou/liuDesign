@@ -45,7 +45,7 @@
           </div>
         </el-carousel-item>
 
-
+      <!-- 002-->
         <el-carousel-item>
           <div class="intro-wrapper">
              <img src="../../static/works/left_arrow.jpg" v-if="!isFirstPage" class="leftarrow" @click="goNext"/>
@@ -78,7 +78,11 @@
             </div>
           </div>
         </el-carousel-item>
+
       </el-carousel>
+
+     
+
     </div>
   </div>
 </template>
@@ -92,7 +96,7 @@ export default {
   },
   data() {
     return {
-      totalCount: 2,
+      totalCount: 3,
       currentIndex: 0
     };
   },

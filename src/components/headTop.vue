@@ -122,7 +122,8 @@ export default {
 
     .main-title {
       font-size: 30px;
-      color: #ffffff;
+      // color: #333;
+      color: #fff;
       font-weight: bold;
     }
 

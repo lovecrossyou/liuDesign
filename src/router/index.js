@@ -9,6 +9,8 @@ const home = r => require.ensure([], () => r(require('@/page/home')), 'home');
 const index = r => require.ensure([], () => r(require('@/page/index')), 'index');
 //设计理念
 const design = r => require.ensure([], () => r(require('@/page/design')), 'design');
+const design1 = r => require.ensure([], () => r(require('@/page/design1')), 'design1');
+
 const news = r => require.ensure([], () => r(require('@/page/news')), 'news');
 const about = r => require.ensure([], () => r(require('@/page/about')), 'about');
 const history = r => require.ensure([], () => r(require('@/page/history')), 'history');
@@ -29,6 +31,10 @@ const routes = [
 	{
 		path: '/design',
 		component: design
+	},
+	{
+		path: '/design1',
+		component: design1
 	},
 	{
 		path: '/news',
