@@ -48,6 +48,7 @@ export default {
   position: relative;
   padding: 60px 80px;
 }
+
 .bg {
   position: absolute;
   left: 0px;

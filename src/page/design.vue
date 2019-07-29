@@ -49,7 +49,6 @@ export default {
   height: 700px;
   box-sizing: border-box;
   position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,13 +73,10 @@ export default {
 .main {
   width: 85%;
   height: 600px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   position: relative;
-
   background: url('../../static/design/设计灵感_03.jpg')no-repeat ;
   background-size: 100% 100%;
 }

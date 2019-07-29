@@ -7,7 +7,7 @@
           <div class="next">NEXT</div>
           <img src="../../static/home/right_btn.png" alt />
         </div>
-<div class="bg-box"></div>
+      <div class="bg-box"></div>
         <div class="poem-wrapper">          
           <div class="poem-item">银河在望,天汉未央;</div>
           <div>两汉悠长,国士无双;</div>
@@ -21,7 +21,6 @@
           <div>而今吟唱,其志飞扬,</div>
           <div>汉服抒怀,国运辉煌.</div>
         </div>
-
         <div class="desc-wrapper">
           <div class="desc-text">汉服之赋 • 2019-夏</div>
           <div class="line"></div>
@@ -87,13 +86,10 @@ export default {
 .main {
   width: 85%;
   height: 600px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   position: relative;
-
   background: #ffffff;
   background-size: 100% 100%;
 }
@@ -118,7 +114,6 @@ export default {
 .poem-wrapper{
   padding-top: 60px;
   box-sizing: border-box;
-
   position: absolute;
   /* background-color: #e1e1e1; */
   padding: 10px 50px;
@@ -137,11 +132,12 @@ export default {
   height: 60%;
   margin-top: 90px;
 }
+
+
 .poem-wrapper >div{
   font-size: 30px;
   font-weight: bold;
   color: #333;
-
 }
 
 

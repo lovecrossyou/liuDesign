@@ -1,9 +1,8 @@
 <template>
   <div class="container">
+    <head-top ></head-top>
     <div class="content">
-      <div class="fix-bg"></div>
-      <head-top ></head-top>
-
+      <div class="fix-bg"></div>    
       <el-carousel :autoplay="false" :interval="4000" height="800px" arrow="never" ref="carousel" :change="change">
         <!-- 001 -->
         <el-carousel-item>
@@ -131,7 +130,7 @@ export default {
   .content {
 
     position: relative;
-
+    width: 1164px;
     .fix-bg {
       position: absolute;
       background-color: #fbfbfb;
